@@ -1,5 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const wait = require('node:timers/promises').setTimeout;
+const {showAvailableCountries} = require('../../reloadly/filtering.js')
+const {getProductsbyBrandName} = require('../../reloadly/assets.js')
 
 module.exports = {
 
@@ -9,9 +11,11 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply()
 
-        
+        const availableProducts = await getProductsbyBrandName('Riot Access')
 
-        await interaction.editReply(`This command was run by ${interaction.user.username}, Number ${random}, who joined on ${interaction.member.joinedAt}.`);
+        const countries = await showAvailableCountries(availableProducts)
+
+        await interaction.editReply(`Available Countries: ${countries}`);
     }
 
 

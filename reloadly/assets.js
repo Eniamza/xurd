@@ -19,7 +19,9 @@ async function getProductsbyBrandName(brandName) {
 
         const response = await ax.get(url, {headers: headers})
 
-        console.log(response.data)
+        console.log(`Products by Brand Name: ${brandName}`,Date.now())
+
+        return response.data
 
         
     } catch (error) {
@@ -28,4 +30,4 @@ async function getProductsbyBrandName(brandName) {
 
 }
 
-getProductsbyBrandName('Riot Access')
+module.exports = {getProductsbyBrandName}
