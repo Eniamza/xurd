@@ -6,15 +6,14 @@ async function showAvailableCountries(availableProducts) {
 
     let productArray = availableProducts.content
 
-    console.log(productArray.length)
-
     productArray.forEach(product => {
-        countries.push(product.country.isoName)
+        let countryfull = `**${product.country.isoName}** >${product.country.name}`
+        countries.push(countryfull)
     })
 
-    let uniqueCountries = [...new Set(countries)]
 
-    console.log(uniqueCountries)
+
+    let uniqueCountries = [...new Set(countries)]
 
     return uniqueCountries
 

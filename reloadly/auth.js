@@ -12,6 +12,7 @@ async function reloadlyAuth(){
     })
 
     console.log(`Auth Success`,Date.now())
+    console.log(response.data)
     return response.data
 
 }
